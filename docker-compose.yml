@@ -9,7 +9,7 @@ services:
   nginx-proxy:
     restart: always
     container_name: nginx-proxy
-    image: jwilder/nginx-proxy
+    image: nginxproxy/nginx-proxy
     ports:
       - 80:80
       - 443:443
@@ -19,10 +19,10 @@ services:
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
-  nginx-proxy-letsencrypt:
+  acme-companion:
     restart: always
-    container_name: nginx-proxy-letsencrypt
-    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: acme-companion
+    image: nginxproxy/acme-companion
     volumes: 
       - certs:/etc/nginx/certs
       - vhost.d:/etc/nginx/vhost.d
