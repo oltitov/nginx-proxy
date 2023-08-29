@@ -2,8 +2,8 @@ version: '3.9'
 
 networks:
   default:
-    external:
-      name: network
+    name: network
+    external: true
 
 services:
   nginx-proxy:
