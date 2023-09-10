@@ -18,6 +18,7 @@ services:
       - vhost.d:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./config/custom_proxy_settings.conf:/etc/nginx/conf.d/custom_proxy_settings.conf:ro
 
   acme-companion:
     restart: always
